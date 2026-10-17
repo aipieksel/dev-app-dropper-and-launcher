@@ -1,0 +1,51 @@
+<!doctype html>
+<html data-theme="dark" lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>App Dropper</title>
+  <link href="/app.css" rel="stylesheet">
+</head>
+<body>
+  <header class="workspace-controls">
+    <div class="brand">
+      <p class="eyebrow">Mac app launcher</p>
+      <h1>App Dropper</h1>
+    </div>
+    <span class="capture-detail" id="statusLine">Drop a folder to create a Mac app</span>
+    <div class="header-actions">
+      <button class="button" id="openDropper" type="button">Open App Dropper Apps</button>
+      <button class="button" id="openApps" type="button">Open Apps folder</button>
+      <button class="icon-button" id="themeToggle" type="button" aria-label="Toggle theme" title="Toggle theme">◐</button>
+    </div>
+  </header>
+
+  <main class="app single" id="app">
+    <section class="queue-column workspace-pane" aria-label="Folder drop">
+      <header class="column-header">
+        <div class="header-copy">
+          <p class="eyebrow">Folder drop</p>
+          <h2>Drop a folder to create a Mac app</h2>
+        </div>
+      </header>
+      <div class="dropzone" id="dropzone">
+        <h3>Drop a project folder</h3>
+        <p>App Dropper looks through the folder, figures out the project, and builds a double-clickable Mac app. If that folder has no start script, App Dropper writes one. The app is saved in App Dropper Apps, which you can put in the Dock and open the way you open the Applications stack, and it is installed in the Apps folder. If the app is already running, opening it again uses your default browser. If its port is taken, the launcher uses the next free port.</p>
+      </div>
+      <form class="folder-form" id="folderForm">
+        <div class="prompt-field">
+          <label for="folderPath">Folder path</label>
+          <input id="folderPath" type="text" placeholder="/path/to/project" autocomplete="off" spellcheck="false">
+        </div>
+        <button class="button primary" id="createApp" type="submit">Create Mac app</button>
+        <button class="button" id="chooseFolder" type="button">Choose folder</button>
+      </form>
+      <div class="job-list" id="jobList"></div>
+    </section>
+  </main>
+
+  <div class="notice" id="notice" role="status" hidden></div>
+  <script src="/bootstrap.js"></script>
+  <script src="/app.js"></script>
+</body>
+</html>
